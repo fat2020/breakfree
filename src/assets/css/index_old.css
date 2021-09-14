@@ -1,0 +1,422 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+    padding:0;
+}
+
+.menu-burger {
+    /*pour le faire disparaitre*/
+    display: none;
+}
+
+header {
+    height: 100vh;
+    width: auto;
+}
+.fond-nav {
+    background-image:url("../img/break3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: auto;
+}
+#logo-nav {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}
+
+/*Slider header*/
+.slide1,.slide2,.slide3,.slide4{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.slide1 {
+    animation: fad1 10s infinite;
+}
+.slide2 {
+    animation: fad2 10s infinite;
+}
+.slide3 {
+    animation: fad3 10s infinite;
+}
+.slide4 {
+    animation: fad4 10s infinite;
+}
+
+@keyframes  fad1
+{
+    0% {opacity: 1;}
+    25% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 0;}
+    100% {opacity: 1;}
+    
+}
+@keyframes  fad2
+{
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    50% {opacity: 0;}
+    75% {opacity: 0;}
+    100% {opacity: 1;}
+    
+}
+@keyframes  fad3
+{
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity: 1;}
+    75% {opacity: 0;}
+    100% {opacity: 0;}
+    
+}
+@keyframes  fad4
+{
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+    
+}
+/*Fin slider*/
+.clearfix:before,
+.clearfix:after {
+    content: none;
+    display: table;
+}
+
+nav {
+    background-color: #0002;
+    width: auto;
+    height: 60px;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+ul {
+    list-style: none;
+  
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    display: flex;
+    background: none;
+}
+
+.logo-img {
+    width: 120px;
+}
+
+.content p {
+    margin-left: 20px;
+    margin-right: 10px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+#menu li {
+    float: left;
+    padding: 20px 18.5% 4px 14.5%;
+    border-left: none;
+}
+
+.main-menu {
+    width: 100%;
+    background-color: none;
+    /*
+    La propriété CSS box-shadow ajoute des ombres à la boîte d'un élément via une liste d'ombres séparées par des virgules. 
+    Une boîte d'ombre est définie avec des décalages horizontal et vertical par rapport à l'élément, avec des rayons de flou et d'étalement et avec une couleur. 
+    offset-x | offset-y | blur-radius | spread-radius | color 
+    */
+   
+    z-index: 3;
+}
+
+.main-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: transparent;
+}
+
+.main-menu li a {
+    width: 100%;
+    display: block;
+    margin-left: -47px;
+    margin-right: 2px;
+    padding: 0px 2px 0px 2px;
+    text-decoration: none;
+}
+
+.main-menu li a:hover,
+.main-menu .menu-btn:hover {
+    background-color: white;
+}
+
+ul>li {
+    width: 100%;
+}
+
+.main-menu .menu-icon {
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    padding: 28px 20px;
+    position: relative;
+    /*
+    La propriété user-select permet de contrôler l'opération de sélection. Cela n'a aucun effet sur le contenu qui est chargé dans les éléments de l'interface (chrome), sauf pour les boîtes de texte.
+    */
+    user-select: none;
+}
+
+.main-menu .menu-icon .navicon {
+    background-color: #fff;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    /*ease-out : Rapide sur le début et décèlere sur la fin.*/
+    transition: background .2s ease-out;
+    width: 18px;
+}
+
+.main-menu .menu-icon .navicon:before,
+.main-menu .menu-icon .navicon:after {
+    background-color:white;
+    /*
+    La propriété content est utilisée avec les pseudo-éléments ::before et ::after afin de générer le contenu d'un élément. 
+    Les objets insérés via la propriété content sont des éléments remplacés anonymes.
+    */
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    /*ease-out : Rapide sur le début et décèlere sur la fin.*/
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.main-menu .menu-icon .navicon:before {
+    top: 5px;
+}
+
+
+.main-menu .menu-icon .navicon:after {
+    top: -5px;
+}
+
+.main-menu .menu-btn {
+    display: none;
+}
+
+
+/*La pseudo-classe :checked représente n'importe quel bouton radio (<input type="radio">), case à cocher (<input type="checkbox">) 
+ou option (<option> d'un élément <select>) qui est coché ou activé (on). 
+L'utilisateur peut modifier cet état en cliquant sur l'élément ou en sélectionnant une valeur différente auquel cas la pseudo-classe :checked ne s'applique plus à l'élément en question.*/
+
+
+/*
+Peu de personnes connaissent cette astuce. Le symbole tilde (~) nous permet de cibler un attribut qui a une liste de valeurs séparées par un espace.
+*/
+
+.main-menu .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.main-menu .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.main-menu .menu-btn:checked~.menu-icon .navicon:before {
+    /*
+    La fonction rotate() définit une transformation qui déplace un élément autour d'un point fixe (défini par la propriété transform-origin) sans le déformer (autrement dit, qui applique une rotation plane). C'est une rotation autour de ce point. Par défaut, cette origine correspond au centre de l'élément.
+    La rotation plane est définie par un angle, l'argument de la fonction. Si l'angle indiqué est positif, le mouvement sera appliqué dans le sens horaire et sinon il sera appliqué dans le sens inverse des aiguilles d'une montre. La valeur obtenue par cette fonction est de type <transform-function>.
+    L'angle de la rotation créée grâce à rotate() est fourni comme argument à cette fonction via une valeur de type <angle>. Si l'angle est positif, la rotation sera dans le sens des aiguilles d'une montre et s'il est négatif, elle sera dans le sens inverse des aiguilles d'une montre
+    */
+    transform: rotate(-45deg);
+}
+
+.main-menu .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.main-menu .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.main-menu .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+.main-menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    background-color: transparent;
+    margin: 0 auto;
+}
+
+footer {
+    background: #ccc;
+   width: auto;
+    bottom: 0;
+}
+
+li {
+    list-style: none;
+    color: #FFF;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+li>a:only-child:after {
+    content: '';
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+nav ul li {
+    list-style: none;
+    line-height: 44px;
+    float: left;
+}
+nav ul li a {
+    color: #FFF;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+   
+}
+li a:hover {
+    border-bottom: 3px #FFF solid;
+}
+nav ul li ul {
+    display: none;
+}
+
+/* Rend le menu déroulant caché par défaut */
+nav ul li:hover ul {
+    /* Affiche la dropNav au survol de la souris avec la class .drop */
+    
+    z-index: 99999;
+    display: list-item !important;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: -10px;
+}
+nav ul li:hover ul li {
+    float: none;
+}
+.h2 {
+    font-size: 1.5em
+}
+#p {
+    font-size: large;
+}
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+/* ----------------------------------
+* Mobile [First]					-
+* ---------------------------------*/
+.logo {
+	width: 55px;
+}
+.deadline {
+	height: 500px;
+}
+.wrap {
+	width: 100%;
+}
+
+.menu {
+	width: 100%;
+	height: 50px;
+	background: #101010
+}
+
+
+/* ----------------------------------
+* Small  [Portrait]                 -
+* ---------------------------------*/
+@media (max-width: 768px) 			{
+	.logo {
+		width: 111px
+	}
+	.wrap {
+		width: 550px;
+		margin: 0 auto;
+
+		margin: 10px 20px;
+	}
+
+}
+
+/* ----------------------------------
+* Medium [Landscape]				-
+* ---------------------------------*/
+ @media (min-width: 768px) and (max-width: 992px)			{
+.logo {
+		width: 150px;
+	}
+	.wrap {
+		width: 760px;
+		margin: 0 auto;
+    }
+    
+    .menu-burger {
+        display: block;
+    }
+    
+.slide1,.slide2,.slide3,.slide4{
+    display: block;
+    position: absolute;
+    width: 768px;
+    height: 100%;
+}
+}
+
+/* ----------------------------------
+* Large [Desktops]					-
+* ---------------------------------*/
+@media (min-width: 992px) 			{
+	.logo {
+		width: 250px;
+	}
+	.wrap {
+		width: 950px;
+		margin: 0 auto;
+	}
+
+}
